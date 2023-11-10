@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Оценки студентов</title>
+</head>
+<body>
+
+    <h1>Оценки учеников</h1>
+
+    {% for student, grade in student_grades.items %}
+        <p>{{ student.FIO }} - Средний балл: {{ grade }}</p>
+    {% endfor %}
+
+
+</body>
+</html>
