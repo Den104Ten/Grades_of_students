@@ -8,9 +8,11 @@
 
     <h1>Оценки учеников</h1>
 
-    {% for student, grade in student_grades.items %}
-        <p>{{ student.FIO }} - Средний балл: {{ grade }}</p>
+    <!-- перечисление учеников -->
+    {% for item in student_grades %}
+        <p>{{ item.student.FIO }} - Средний балл: {{ item.grade }}</p>
     {% endfor %}
+
 
 
 </body>

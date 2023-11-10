@@ -1,6 +1,7 @@
 from django.db import models
 
 
+# Модель базы данных
 class Students(models.Model):
     FIO = models.CharField(max_length=100)
     DOB = models.CharField(max_length=50)
