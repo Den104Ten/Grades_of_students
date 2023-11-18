@@ -33,4 +33,26 @@ class HomeView(View):
 
 
 
+class BooksView(View):
+
+    def get(self, request):
+        # Жанр: Роман
+        roman = Books.objects.filter(genre='Роман')  # далее вывести список романов, отсортировав по популярности
+        fantastic = Books.objects.filter(genre='Фантастика')
+        fantasy = Books.objects.filter(genre='Фэнтези')
+        triller = Books.objects.filter(genre='Триллер')
+        filosof_roman = Books.objects.filter(genre='Философский роман')
+        child_lit = Books.objects.filter(genre='Детская литература')
+        data = {'roman': sorted(roman, key=lambda x: x.grade_popularity, reverse=True),
+                'fantastic': sorted(fantastic, key=lambda x: x.grade_popularity, reverse=True),
+                'fantasy': sorted(fantasy, key=lambda x: x.grade_popularity, reverse=True),
+                'triller': sorted(triller, key=lambda x: x.grade_popularity, reverse=True),
+                'filosof_roman': sorted(filosof_roman, key=lambda x: x.grade_popularity, reverse=True),
+                'child_lit': sorted(child_lit, key=lambda x: x.grade_popularity, reverse=True)}
+        return render(request, 'grades_app/book.html', context=data)
+
+
+
+
+
 
